@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.outputsports.example.athlete.R
 import com.outputsports.example.athlete.data.AthleteProfile
 import com.squareup.picasso.Picasso
-import kotlin.random.Random
 
 class AthleteList : Fragment() {
     override fun onCreateView(
@@ -26,9 +25,7 @@ class AthleteList : Fragment() {
         val viewAdapter = MyAdapter(
             // crudely and randomly generate data of athlete profiles
             // replace this block with actual data loading code when they are available
-            Array<AthleteProfile>(10){
-                AthleteProfile("Person ${it + 1}", Random.nextInt(15, 40), avatarURL)
-            }
+            listOfAthletes.toTypedArray()
         )
 
         view.findViewById<RecyclerView>(R.id.athlete_list).run {
@@ -42,16 +39,14 @@ class MyAdapter(private val myDataset: Array<AthleteProfile>) : RecyclerView.Ada
     class ViewHolder(val item: View) : RecyclerView.ViewHolder(item)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.item.findViewById<TextView>(R.id.full_name).text = myDataset[position % myDataset.size].full_name
-        holder.item.findViewById<TextView>(R.id.age).text = myDataset[position % myDataset.size].age.toString()
+        holder.item.findViewById<TextView>(R.id.full_name).text = myDataset[position % myDataset.size].getFullName()
+        holder.item.findViewById<TextView>(R.id.age).text = myDataset[position % myDataset.size].getAge().toString()
 
         // profile photo loaded remotely from URL
         val imageView = holder.item.findViewById<ImageView>(R.id.profile_photo)
         Picasso.get().load(avatarURL).fit().centerCrop().placeholder(R.drawable.photo_avatar_placeholder)
             .error(R.drawable.photo_avatar_error)
-            .into(
-                holder.item.findViewById<ImageView>(R.id.profile_photo)
-            )
+            .into(imageView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -65,3 +60,15 @@ class MyAdapter(private val myDataset: Array<AthleteProfile>) : RecyclerView.Ada
 }
 
 private const val avatarURL = "https://i.imgur.com/MIgAJK4h.jpgi.imgur.com/MIgAJK4h.jpg"
+
+private val listOfAthletes = listOf(
+    AthleteProfile("Alex", "Bob", 1994, 4, 22),
+    AthleteProfile("Amanda", "Clarke", 1997, 7, 11),
+    AthleteProfile("Brenda", "Coal", 2000, 11, 2),
+    AthleteProfile("Ben", "Aftertaste", 2002, 12, 20),
+    AthleteProfile("Emily", "Rose", 2005, 1, 9),
+    AthleteProfile("Honda", "Yamaha", 1999, 2, 10),
+    AthleteProfile("Jack", "Bauer", 1982, 5, 25),
+    AthleteProfile("V", "von Vendetta", 1990, 9, 21),
+    AthleteProfile("Zelda", "Wild", 1135, 6,6)
+)
