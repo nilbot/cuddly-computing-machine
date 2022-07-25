@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_list_to_profile"
             app:destination="@id/viewProfile" />
+        <action
+            android:id="@+id/action_btn_to_form"
+            app:destination="@id/register_form" />
     </fragment>
     <fragment
         android:id="@+id/viewProfile"
@@ -26,5 +29,12 @@
             android:name="ageKey"
             app:argType="string" />
     </fragment>
-
+    <fragment
+        android:id="@+id/register_form"
+        android:name="com.outputsports.example.athlete.formscreen.AthleteRegister"
+        tools:layout="@layout/fragment_athlete_register">
+        <action
+            android:id="@+id/action_form_to_list"
+            app:destination="@id/listView" />
+    </fragment>
 </navigation>

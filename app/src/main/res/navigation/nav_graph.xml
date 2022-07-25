@@ -5,6 +5,5 @@
     app:startDestination="@+id/list">
 
     <include app:graph="@navigation/list"/>
-    <include app:graph="@navigation/form"/>
 
 </navigation>
