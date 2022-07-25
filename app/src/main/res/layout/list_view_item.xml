@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/profile_photo"
+        android:id="@+id/listview_photo"
         android:layout_width="69dp"
         android:layout_height="69dp"
         android:layout_marginStart="8dp"
@@ -18,24 +18,24 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/full_name"
+        android:id="@+id/listview_full_name"
         android:layout_width="228dp"
         android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/full_name"
-        app:layout_constraintBottom_toTopOf="@+id/age"
-        app:layout_constraintStart_toEndOf="@+id/profile_photo"
+        app:layout_constraintBottom_toTopOf="@+id/listview_age"
+        app:layout_constraintStart_toEndOf="@+id/listview_photo"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/age"
+        android:id="@+id/listview_age"
         android:layout_width="228dp"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/age"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/profile_photo"
-        app:layout_constraintTop_toBottomOf="@+id/full_name" />
+        app:layout_constraintStart_toEndOf="@+id/listview_photo"
+        app:layout_constraintTop_toBottomOf="@+id/listview_full_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>

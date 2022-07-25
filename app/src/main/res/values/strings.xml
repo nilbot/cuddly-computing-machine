@@ -4,4 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="full_name">Michael Gibbins</string>
     <string name="age">22</string>
+    <string name="profile_name_1">Alex Bob</string>
+    <string name="profile_age_1">20</string>
+    <string name="viewProfileLabel">Athlete Profile</string>
+    <string name="viewListLabel">Athlete List</string>
 </resources>

@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list"
-    app:startDestination="@+id/athletelist">
+    app:startDestination="@+id/listView">
 
     <fragment
-        android:id="@+id/athletelist"
+        android:id="@+id/listView"
         android:name="com.outputsports.example.athlete.listscreen.AthleteList"
-        android:label="Athlete List"
+        android:label="@string/viewListLabel"
         tools:layout="@layout/fragment_athlete_list">
         <action
             android:id="@+id/action_list_to_profile"
@@ -17,9 +17,14 @@
     <fragment
         android:id="@+id/viewProfile"
         android:name="com.outputsports.example.athlete.listscreen.ViewProfile"
-        android:label="Athlete Profile"
-        tools:layout="@layout/fragment_athlete_profile"
-
-    />
+        android:label="@string/viewProfileLabel"
+        tools:layout="@layout/fragment_athlete_profile">
+        <argument
+            android:name="nameKey"
+            app:argType="string"/>
+        <argument
+            android:name="ageKey"
+            app:argType="string" />
+    </fragment>
 
 </navigation>
