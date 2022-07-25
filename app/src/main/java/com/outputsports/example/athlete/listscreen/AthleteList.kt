@@ -59,6 +59,7 @@ class MyAdapter(private val myDataset: Array<AthleteProfile>) :
             val bundle = bundleOf(
                 NAME_KEY to myDataset[position].getFullName(),
                 AGE_KEY to myDataset[position].getAge().toString()
+                // photo URL key could also goes in here later
             )
 
             holder.item.findNavController().navigate(
